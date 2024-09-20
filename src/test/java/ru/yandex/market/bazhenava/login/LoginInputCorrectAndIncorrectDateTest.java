@@ -5,7 +5,7 @@ import ru.yandex.market.bazhenava.HomePage;
 import ru.yandex.market.bazhenava.LoginPage;
 import ru.yandex.market.bazhenava.driver.DriverSingleton;
 
-public class LoginInputCorrectAndIncorrectDate {
+public class LoginInputCorrectAndIncorrectDateTest {
 
     @Test
     public void testInputCorrectEmailIncorrectPassword() {
