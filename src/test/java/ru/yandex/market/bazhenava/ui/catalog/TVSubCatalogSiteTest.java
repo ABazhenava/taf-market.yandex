@@ -1,4 +1,4 @@
-package ru.yandex.market.bazhenava.catalog;
+package ru.yandex.market.bazhenava.ui.catalog;
 
 import org.junit.jupiter.api.Test;
 import ru.yandex.market.bazhenava.HomePage;

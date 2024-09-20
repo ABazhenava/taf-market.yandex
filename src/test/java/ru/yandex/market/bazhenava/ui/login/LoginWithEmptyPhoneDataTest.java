@@ -1,25 +1,24 @@
-package ru.yandex.market.bazhenava.login;
+package ru.yandex.market.bazhenava.ui.login;
 
 import org.junit.jupiter.api.Test;
 import ru.yandex.market.bazhenava.HomePage;
 import ru.yandex.market.bazhenava.LoginPage;
 import ru.yandex.market.bazhenava.driver.DriverSingleton;
 
-public class LoginInputIncorrectDateTest {
+public class LoginWithEmptyPhoneDataTest {
+
 
     @Test
-    public void testInputIncorrectEmailAndPasswordDate() {
+    public void testLoginWithEmptyPhoneData() {
+
         HomePage homePage = new HomePage();
         homePage.openPage();
         homePage.clickButtonLogin();
 
         LoginPage loginPage = new LoginPage();
-        loginPage.inputEmail("mail");
+        loginPage.clickButtonPhoneEnter();
         loginPage.clickButtonEnter();
-        loginPage.inputPassword("1234");
-        loginPage.clickButtonLoginContinue();
-
-        loginPage.validatingWhenIncorrectPasswordEnter();
+        loginPage.validatingWhenEmptyPhoneEnter();
         DriverSingleton.closeDriver();
     }
 }

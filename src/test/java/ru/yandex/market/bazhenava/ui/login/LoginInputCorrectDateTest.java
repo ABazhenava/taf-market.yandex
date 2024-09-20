@@ -1,4 +1,4 @@
-package ru.yandex.market.bazhenava.login;
+package ru.yandex.market.bazhenava.ui.login;
 
 import org.junit.jupiter.api.Test;
 import ru.yandex.market.bazhenava.HomePage;
