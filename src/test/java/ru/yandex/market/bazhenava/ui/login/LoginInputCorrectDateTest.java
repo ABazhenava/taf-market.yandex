@@ -14,9 +14,9 @@ public class LoginInputCorrectDateTest {
         homePage.clickButtonLogin();
 
         LoginPage loginPage = new LoginPage();
-        loginPage.inputEmail("aksana.bazhenava@gmail.com");
+        loginPage.inputCorrectEmail();
         loginPage.clickButtonEnter();
-        loginPage.inputPassword("Asdf#12369874");
+        loginPage.inputCorrectPassword();
         loginPage.clickButtonLoginContinue();
         //loginPage.clickButtonLoginNotYet();
 

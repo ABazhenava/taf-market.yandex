@@ -1,5 +1,6 @@
 package ru.yandex.market.bazhenava;
 
+import com.github.javafaker.Faker;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,6 +12,7 @@ import ru.yandex.market.bazhenava.utils.Waiters;
 public class LoginPage {
 
     WebDriver driver;
+    private Faker faker;
 
     public LoginPage() {
         this.driver = DriverSingleton.getDriver();
@@ -50,17 +52,31 @@ public class LoginPage {
         Assertions.assertEquals(expectedEmptyPhoneEnterText, actualEmptyPhoneEnterText);
     }
 
-    public void inputEmail(String email) {
+    public void inputEmail() {
         By inputEmailBy = By.xpath(LoginPageXPath.INPUT_EMAIL_XPATH);
         WebElement inputEmail = driver.findElement(inputEmailBy);
-        inputEmail.sendKeys(email);
+        inputEmail.sendKeys(faker.internet().emailAddress());
         Waiters.waitFor(2);
     }
 
-    public void inputPassword(String password) {
+    public void inputCorrectEmail() {
+        By inputEmailBy = By.xpath(LoginPageXPath.INPUT_EMAIL_XPATH);
+        WebElement inputEmail = driver.findElement(inputEmailBy);
+        inputEmail.sendKeys(LoginPageXPath.CORRECT_EMAIL);
+        Waiters.waitFor(2);
+    }
+
+    public void inputPassword() {
         By inputPasswordBy = By.xpath(LoginPageXPath.INPUT_PASSWORD_XPATH);
         WebElement inputPassword = driver.findElement(inputPasswordBy);
-        inputPassword.sendKeys(password);
+        inputPassword.sendKeys(faker.internet().password(5, 12));
+        Waiters.waitFor(2);
+    }
+
+    public void inputCorrectPassword() {
+        By inputPasswordBy = By.xpath(LoginPageXPath.INPUT_PASSWORD_XPATH);
+        WebElement inputPassword = driver.findElement(inputPasswordBy);
+        inputPassword.sendKeys(LoginPageXPath.CORRECT_PASSWORD);
         Waiters.waitFor(2);
     }
 

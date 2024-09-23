@@ -8,15 +8,16 @@ import ru.yandex.market.bazhenava.driver.DriverSingleton;
 public class LoginInputIncorrectDateTest {
 
     @Test
-    public void testInputIncorrectEmailAndPasswordDate() {
+    public void testInputCorrectEmailIncorrectPassword() {
         HomePage homePage = new HomePage();
         homePage.openPage();
         homePage.clickButtonLogin();
 
         LoginPage loginPage = new LoginPage();
-        loginPage.inputEmail("mail");
+        loginPage.inputEmail();
         loginPage.clickButtonEnter();
-        loginPage.inputPassword("1234");
+
+        loginPage.inputPassword();
         loginPage.clickButtonLoginContinue();
 
         loginPage.validatingWhenIncorrectPasswordEnter();
