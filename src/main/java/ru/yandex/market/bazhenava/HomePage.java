@@ -13,7 +13,7 @@ import ru.yandex.market.bazhenava.utils.Waiters;
 
 public class HomePage {
     WebDriver driver;
-    private final String URL = "https://market.yandex.ru/";
+    public static final String URL = "https://market.yandex.ru/";
 
     public void openPage() {
         driver.get(URL);
