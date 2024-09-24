@@ -7,14 +7,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.yandex.market.bazhenava.driver.DriverSingleton;
-import ru.yandex.market.bazhenava.pages.DropDownMenuPageXPath;
-import ru.yandex.market.bazhenava.pages.HomePageXPath;
+import ru.yandex.market.bazhenava.pages.home.DropDownMenuPageXPath;
+import ru.yandex.market.bazhenava.pages.home.HomePageXPath;
 import ru.yandex.market.bazhenava.utils.Waiters;
-
-import java.time.Duration;
 
 public class HomePage {
     WebDriver driver;
@@ -27,6 +23,7 @@ public class HomePage {
 
     public HomePage() {
         this.driver = DriverSingleton.getDriver();
+        Faker faker = new Faker();
     }
 
     public void clickButtonLogin() {
@@ -34,8 +31,6 @@ public class HomePage {
         WebElement buttonLogin = driver.findElement(buttonLoginBy);
         buttonLogin.click();
         Waiters.waitFor(2);
-//        Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(3));
-//        wait.until(d -> buttonLogin.isDisplayed());
     }
 
     public void validatingWhenСorrectLoginDateEnter() {
@@ -44,7 +39,7 @@ public class HomePage {
         String actualCorrectLoginDataEnterText = correctLoginDataEnter.getText();
         String expectedCorrectLoginDataEnterText = "Мы в соцсетях";
 
-        Waiters.waitFor(2);
+        Waiters.waitFor(4);
         Assertions.assertEquals(expectedCorrectLoginDataEnterText, actualCorrectLoginDataEnterText);
     }
 

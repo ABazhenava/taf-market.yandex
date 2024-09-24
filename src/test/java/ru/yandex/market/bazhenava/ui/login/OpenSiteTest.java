@@ -8,8 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.yandex.market.bazhenava.BaseTest;
-import ru.yandex.market.bazhenava.pages.HomePageXPath;
-import ru.yandex.market.bazhenava.utils.Waiters;
+import ru.yandex.market.bazhenava.pages.home.HomePageXPath;
 
 import java.time.Duration;
 

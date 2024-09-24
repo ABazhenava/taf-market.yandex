@@ -1,6 +1,6 @@
 package ru.yandex.market.bazhenava;
 
-import ru.yandex.market.bazhenava.pages.HomePageXPath;
+import ru.yandex.market.bazhenava.pages.home.HomePageXPath;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;

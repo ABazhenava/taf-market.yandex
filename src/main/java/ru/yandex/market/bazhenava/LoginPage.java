@@ -5,24 +5,31 @@ import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.yandex.market.bazhenava.driver.DriverSingleton;
-import ru.yandex.market.bazhenava.pages.LoginPageXPath;
+import ru.yandex.market.bazhenava.pages.login.LoginPageXPath;
 import ru.yandex.market.bazhenava.utils.Waiters;
+
+import java.time.Duration;
 
 public class LoginPage {
 
     WebDriver driver;
     private Faker faker;
+    WebDriverWait webDriverWait;
 
     public LoginPage() {
+
         this.driver = DriverSingleton.getDriver();
+        faker = new Faker();
+        webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(3));
     }
 
     public void clickButtonEnter() {
         By buttonLoginBy = By.xpath(LoginPageXPath.BUTTON_ENTER_XPATH);
         WebElement buttonEnterWebElement = driver.findElement(buttonLoginBy);
         buttonEnterWebElement.click();
-        Waiters.waitFor(2);
+        Waiters.waitFor(3);
     }
 
     public void clickButtonPhoneEnter() {
@@ -52,24 +59,27 @@ public class LoginPage {
         Assertions.assertEquals(expectedEmptyPhoneEnterText, actualEmptyPhoneEnterText);
     }
 
-    public void inputEmail() {
+    public void inputRandomEmail() {
         By inputEmailBy = By.xpath(LoginPageXPath.INPUT_EMAIL_XPATH);
         WebElement inputEmail = driver.findElement(inputEmailBy);
-        inputEmail.sendKeys(faker.internet().emailAddress());
         Waiters.waitFor(2);
+        inputEmail.sendKeys(faker.internet().emailAddress());
+        Waiters.waitFor(4);
     }
 
     public void inputCorrectEmail() {
         By inputEmailBy = By.xpath(LoginPageXPath.INPUT_EMAIL_XPATH);
         WebElement inputEmail = driver.findElement(inputEmailBy);
         inputEmail.sendKeys(LoginPageXPath.CORRECT_EMAIL);
-        Waiters.waitFor(2);
+        Waiters.waitFor(4);
     }
 
-    public void inputPassword() {
+    public void inputRandomPassword() {
         By inputPasswordBy = By.xpath(LoginPageXPath.INPUT_PASSWORD_XPATH);
         WebElement inputPassword = driver.findElement(inputPasswordBy);
-        inputPassword.sendKeys(faker.internet().password(5, 12));
+        String randomPassword = faker.numerify("######");
+        Waiters.waitFor(4);
+        inputPassword.sendKeys(randomPassword);
         Waiters.waitFor(2);
     }
 
@@ -77,7 +87,7 @@ public class LoginPage {
         By inputPasswordBy = By.xpath(LoginPageXPath.INPUT_PASSWORD_XPATH);
         WebElement inputPassword = driver.findElement(inputPasswordBy);
         inputPassword.sendKeys(LoginPageXPath.CORRECT_PASSWORD);
-        Waiters.waitFor(2);
+        Waiters.waitFor(4);
     }
 
     public void validatingWhenIncorrectEmailEnter() {
@@ -105,10 +115,10 @@ public class LoginPage {
     }
 
     public void validatingWhenIncorrectPasswordEnter() {
-        By incorrectPasswordEnterBy = By.xpath(LoginPageXPath.ERROR_PASSWORD_XPATH);
+        By incorrectPasswordEnterBy = By.xpath(LoginPageXPath.SEND_CODE_AGAINE);
         WebElement incorrectPasswordEnter = driver.findElement(incorrectPasswordEnterBy);
         String actualIncorrectPasswordEnterText = incorrectPasswordEnter.getText();
-        String expectedIncorrectPasswordEnterText = "Неверный пароль";
+        String expectedIncorrectPasswordEnterText = "Отправить код повторно";
 
         Waiters.waitFor(2);
         Assertions.assertEquals(expectedIncorrectPasswordEnterText, actualIncorrectPasswordEnterText);

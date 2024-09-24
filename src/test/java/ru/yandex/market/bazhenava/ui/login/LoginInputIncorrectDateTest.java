@@ -14,10 +14,10 @@ public class LoginInputIncorrectDateTest {
         homePage.clickButtonLogin();
 
         LoginPage loginPage = new LoginPage();
-        loginPage.inputEmail();
+        loginPage.inputRandomEmail();
         loginPage.clickButtonEnter();
 
-        loginPage.inputPassword();
+        loginPage.inputRandomPassword();
         loginPage.clickButtonLoginContinue();
 
         loginPage.validatingWhenIncorrectPasswordEnter();
