@@ -14,13 +14,11 @@ import java.time.Duration;
 public class LoginPage {
 
     WebDriver driver;
-    // private Faker faker;
     WebDriverWait webDriverWait;
 
     public LoginPage() {
 
         this.driver = DriverSingleton.getDriver();
-        //   faker = new Faker();
         webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(3));
     }
 
