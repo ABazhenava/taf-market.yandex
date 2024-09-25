@@ -1,6 +1,5 @@
 package ru.yandex.market.bazhenava;
 
-import com.github.javafaker.Faker;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -15,13 +14,13 @@ import java.time.Duration;
 public class LoginPage {
 
     WebDriver driver;
-   // private Faker faker;
+    // private Faker faker;
     WebDriverWait webDriverWait;
 
     public LoginPage() {
 
         this.driver = DriverSingleton.getDriver();
-     //   faker = new Faker();
+        //   faker = new Faker();
         webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(3));
     }
 
@@ -58,37 +57,6 @@ public class LoginPage {
         Waiters.waitFor(2);
         Assertions.assertEquals(expectedEmptyPhoneEnterText, actualEmptyPhoneEnterText);
     }
-
-//    public void inputRandomEmail() {
-//        By inputEmailBy = By.xpath(LoginPageXPath.INPUT_EMAIL_XPATH);
-//        WebElement inputEmail = driver.findElement(inputEmailBy);
-//        Waiters.waitFor(2);
-//        inputEmail.sendKeys(faker.internet().emailAddress());
-//        Waiters.waitFor(4);
-//    }
-//
-//    public void inputCorrectEmail() {
-//        By inputEmailBy = By.xpath(LoginPageXPath.INPUT_EMAIL_XPATH);
-//        WebElement inputEmail = driver.findElement(inputEmailBy);
-//        inputEmail.sendKeys(LoginPageXPath.CORRECT_EMAIL);
-//        Waiters.waitFor(4);
-//    }
-//
-//    public void inputRandomPassword() {
-//        By inputPasswordBy = By.xpath(LoginPageXPath.INPUT_PASSWORD_XPATH);
-//        WebElement inputPassword = driver.findElement(inputPasswordBy);
-//        String randomPassword = faker.numerify("######");
-//        Waiters.waitFor(4);
-//        inputPassword.sendKeys(randomPassword);
-//        Waiters.waitFor(2);
-//    }
-//
-//    public void inputCorrectPassword() {
-//        By inputPasswordBy = By.xpath(LoginPageXPath.INPUT_PASSWORD_XPATH);
-//        WebElement inputPassword = driver.findElement(inputPasswordBy);
-//        inputPassword.sendKeys(LoginPageXPath.CORRECT_PASSWORD);
-//        Waiters.waitFor(4);
-//    }
 
     public void validatingWhenIncorrectEmailEnter() {
         By incorrectEmailEnterBy = By.xpath(LoginPageXPath.ERROR_EMAIL_XPATH);
