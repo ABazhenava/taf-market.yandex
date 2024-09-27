@@ -95,7 +95,7 @@ public class HomePage {
 
         Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(2));
         wait.until(d -> linkBinOpen.isDisplayed());
-
+        Assertions.assertEquals(expectedBinNameText, actualBinNameText);
     }
 
     @Test
