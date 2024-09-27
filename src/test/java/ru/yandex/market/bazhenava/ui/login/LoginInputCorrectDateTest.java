@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import ru.yandex.market.bazhenava.HomePage;
 import ru.yandex.market.bazhenava.LoginPage;
 import ru.yandex.market.bazhenava.driver.DriverSingleton;
-import ru.yandex.market.bazhenava.user.User;
+import ru.yandex.market.bazhenava.components.Components;
 
 public class LoginInputCorrectDateTest {
 
@@ -14,13 +14,12 @@ public class LoginInputCorrectDateTest {
         homePage.openPage();
         homePage.clickButtonLogin();
 
-        User user = new User();
+        Components user = new Components();
         user.inputCorrectEmail();
         LoginPage loginPage = new LoginPage();
         loginPage.clickButtonEnter();
         user.inputCorrectPassword();
         loginPage.clickButtonLoginContinue();
-        //loginPage.clickButtonLoginNotYet();
 
         homePage.validatingWhenСorrectLoginDateEnter();
         DriverSingleton.closeDriver();

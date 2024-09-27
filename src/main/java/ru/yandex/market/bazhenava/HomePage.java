@@ -3,14 +3,20 @@ package ru.yandex.market.bazhenava;
 
 import com.github.javafaker.Faker;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.yandex.market.bazhenava.driver.DriverSingleton;
+import ru.yandex.market.bazhenava.pages.bin.BinXPath;
 import ru.yandex.market.bazhenava.pages.home.DropDownMenuPageXPath;
 import ru.yandex.market.bazhenava.pages.home.HomePageXPath;
 import ru.yandex.market.bazhenava.utils.Waiters;
+
+import java.time.Duration;
 
 public class HomePage {
     WebDriver driver;
@@ -65,6 +71,43 @@ public class HomePage {
         Waiters.waitFor(2);
     }
 
+    public void addTVToBin() {
+        By linkTVBy = By.xpath(BinXPath.TV_IN_BIN_XPATH);
+        WebElement linkTV = driver.findElement(linkTVBy);
+        linkTV.click();
+        Waiters.waitFor(2);
+    }
+
+    public void openBin() {
+        By buttonBinBy = By.xpath(BinXPath.BUTTON_BIN_XPATH);
+        WebElement buttonBin = driver.findElement(buttonBinBy);
+        buttonBin.click();
+        Waiters.waitFor(2);
+    }
+
+    @Test
+    public void validatingLinkBinOpen() {
+
+        By linkBinOpenBy = By.xpath(BinXPath.LINK_BIN_XPATH);
+        WebElement linkBinOpen = driver.findElement(linkBinOpenBy);
+        String actualBinNameText = linkBinOpen.getText();
+        String expectedBinNameText = "Корзина";
+
+        Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(2));
+        wait.until(d -> linkBinOpen.isDisplayed());
+
+    }
+
+    @Test
+    public void validatingTVInBinOrder() {
+        By linkTVInBinOrderBy = By.xpath(BinXPath.IN_BIN_TO_ORDER);
+        WebElement linkTVInBinOrder = driver.findElement(linkTVInBinOrderBy);
+        String actualLinkNameText = linkTVInBinOrder.getText();
+        String expectedLinkNameText = "Перейти к оформлению";
+
+        Assertions.assertEquals(expectedLinkNameText, actualLinkNameText);
+    }
+
     public void validatingWhenSubCatalogTVOpening() {
         By linkForCustemBy = By.xpath(HomePageXPath.LINK_FOR_CUSTEM_DOWN_SITE);
         WebElement linkForCustem = driver.findElement(linkForCustemBy);
@@ -86,7 +129,7 @@ public class HomePage {
         By linkSplit0012By = By.xpath(HomePageXPath.LINK_SPLIT_0012);
         WebElement linkSplit0012 = driver.findElement(linkSplit0012By);
         String actualLinkNameText = linkSplit0012.getText();
-        String expectedLinkNameText ="Сплит 0012";
+        String expectedLinkNameText = "Сплит 0012";
 
         Assertions.assertEquals(expectedLinkNameText, actualLinkNameText);
     }
