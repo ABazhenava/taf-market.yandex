@@ -4,29 +4,35 @@ import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.yandex.market.bazhenava.driver.DriverSingleton;
-import ru.yandex.market.bazhenava.pages.LoginPageXPath;
+import ru.yandex.market.bazhenava.pages.login.LoginPageXPath;
 import ru.yandex.market.bazhenava.utils.Waiters;
+
+import java.time.Duration;
 
 public class LoginPage {
 
     WebDriver driver;
+    WebDriverWait webDriverWait;
 
     public LoginPage() {
+
         this.driver = DriverSingleton.getDriver();
+        webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(3));
     }
 
     public void clickButtonEnter() {
         By buttonLoginBy = By.xpath(LoginPageXPath.BUTTON_ENTER_XPATH);
-        WebElement buttonEnterWebElement = driver.findElement(buttonLoginBy);
-        buttonEnterWebElement.click();
-        Waiters.waitFor(2);
+        WebElement buttonEnter = driver.findElement(buttonLoginBy);
+        buttonEnter.click();
+        Waiters.waitFor(3);
     }
 
     public void clickButtonPhoneEnter() {
         By buttonPhoneEnterBy = By.xpath(LoginPageXPath.BUTTON_ENTER_PHONE_XPATH);
-        WebElement buttonPhoneEnterWebElement = driver.findElement(buttonPhoneEnterBy);
-        buttonPhoneEnterWebElement.click();
+        WebElement buttonPhoneEnter = driver.findElement(buttonPhoneEnterBy);
+        buttonPhoneEnter.click();
         Waiters.waitFor(2);
     }
 
@@ -50,20 +56,6 @@ public class LoginPage {
         Assertions.assertEquals(expectedEmptyPhoneEnterText, actualEmptyPhoneEnterText);
     }
 
-    public void inputEmail(String email) {
-        By inputEmailBy = By.xpath(LoginPageXPath.INPUT_EMAIL_XPATH);
-        WebElement inputEmail = driver.findElement(inputEmailBy);
-        inputEmail.sendKeys(email);
-        Waiters.waitFor(2);
-    }
-
-    public void inputPassword(String password) {
-        By inputPasswordBy = By.xpath(LoginPageXPath.INPUT_PASSWORD_XPATH);
-        WebElement inputPassword = driver.findElement(inputPasswordBy);
-        inputPassword.sendKeys(password);
-        Waiters.waitFor(2);
-    }
-
     public void validatingWhenIncorrectEmailEnter() {
         By incorrectEmailEnterBy = By.xpath(LoginPageXPath.ERROR_EMAIL_XPATH);
         WebElement incorrectEmailEnter = driver.findElement(incorrectEmailEnterBy);
@@ -76,15 +68,22 @@ public class LoginPage {
 
     public void clickButtonLoginContinue() {
         By buttonLoginContinueBy = By.xpath(LoginPageXPath.BUTTON_LOGIN_CONTINUE);
-        WebElement buttonLoginContinueWebElement = driver.findElement(buttonLoginContinueBy);
-        buttonLoginContinueWebElement.click();
+        WebElement buttonLoginContinue = driver.findElement(buttonLoginContinueBy);
+        buttonLoginContinue.click();
+        Waiters.waitFor(2);
+    }
+
+    public void clickButtonRegisterContinueAfterEmailPasswordEnter() {
+        By buttonRegisterContinueBy = By.xpath(LoginPageXPath.BUTTON_REGISTER_CONTINUE_AFTER_EMAIL_PASSWORD_ENTER);
+        WebElement buttonRegisterContinueContinue = driver.findElement(buttonRegisterContinueBy);
+        buttonRegisterContinueContinue.click();
         Waiters.waitFor(2);
     }
 
     public void clickButtonLoginNotYet() {
         By buttonLoginNotYetBy = By.xpath(LoginPageXPath.BUTTON_LOGIN_NOT_YET);
-        WebElement buttonLoginNotYetWebElement = driver.findElement(buttonLoginNotYetBy);
-        buttonLoginNotYetWebElement.click();
+        WebElement buttonLoginNotYet = driver.findElement(buttonLoginNotYetBy);
+        buttonLoginNotYet.click();
         Waiters.waitFor(2);
     }
 
@@ -93,6 +92,16 @@ public class LoginPage {
         WebElement incorrectPasswordEnter = driver.findElement(incorrectPasswordEnterBy);
         String actualIncorrectPasswordEnterText = incorrectPasswordEnter.getText();
         String expectedIncorrectPasswordEnterText = "Неверный пароль";
+
+        Waiters.waitFor(2);
+        Assertions.assertEquals(expectedIncorrectPasswordEnterText, actualIncorrectPasswordEnterText);
+    }
+
+    public void validatingWhenIncorrectDateEnter() {
+        By incorrectPasswordEnterBy = By.xpath(LoginPageXPath.SEND_CODE_AGAINE);
+        WebElement incorrectPasswordEnter = driver.findElement(incorrectPasswordEnterBy);
+        String actualIncorrectPasswordEnterText = incorrectPasswordEnter.getText();
+        String expectedIncorrectPasswordEnterText = "Отправить код повторно";
 
         Waiters.waitFor(2);
         Assertions.assertEquals(expectedIncorrectPasswordEnterText, actualIncorrectPasswordEnterText);

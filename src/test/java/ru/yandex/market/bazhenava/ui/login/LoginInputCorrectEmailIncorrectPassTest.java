@@ -4,8 +4,9 @@ import org.junit.jupiter.api.Test;
 import ru.yandex.market.bazhenava.HomePage;
 import ru.yandex.market.bazhenava.LoginPage;
 import ru.yandex.market.bazhenava.driver.DriverSingleton;
+import ru.yandex.market.bazhenava.components.Components;
 
-public class LoginInputCorrectAndIncorrectDateTest {
+public class LoginInputCorrectEmailIncorrectPassTest {
 
     @Test
     public void testInputCorrectEmailIncorrectPassword() {
@@ -13,11 +14,12 @@ public class LoginInputCorrectAndIncorrectDateTest {
         homePage.openPage();
         homePage.clickButtonLogin();
 
+        Components user = new Components();
+        user.inputCorrectEmail();
         LoginPage loginPage = new LoginPage();
-        loginPage.inputEmail("aksana.bazhenava@gmail.com");
         loginPage.clickButtonEnter();
 
-        loginPage.inputPassword("Asdf#1236987");
+        user.inputRandomPassword();
         loginPage.clickButtonLoginContinue();
 
         loginPage.validatingWhenIncorrectPasswordEnter();

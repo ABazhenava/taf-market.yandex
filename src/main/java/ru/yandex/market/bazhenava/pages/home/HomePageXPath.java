@@ -1,4 +1,4 @@
-package ru.yandex.market.bazhenava.pages;
+package ru.yandex.market.bazhenava.pages.home;
 
 public class HomePageXPath {
 

@@ -4,22 +4,26 @@ import org.junit.jupiter.api.Test;
 import ru.yandex.market.bazhenava.HomePage;
 import ru.yandex.market.bazhenava.LoginPage;
 import ru.yandex.market.bazhenava.driver.DriverSingleton;
+import ru.yandex.market.bazhenava.components.Components;
 
-public class LoginInputIncorrectDateTest {
+public class LoginInputIncorrectEmailPassTest {
 
     @Test
-    public void testInputIncorrectEmailAndPasswordDate() {
+    public void testInputCorrectEmailIncorrectPassword() {
         HomePage homePage = new HomePage();
         homePage.openPage();
         homePage.clickButtonLogin();
 
-        LoginPage loginPage = new LoginPage();
-        loginPage.inputEmail("mail");
-        loginPage.clickButtonEnter();
-        loginPage.inputPassword("1234");
-        loginPage.clickButtonLoginContinue();
+        Components components = new Components();
+        components.inputRandomEmail();
 
-        loginPage.validatingWhenIncorrectPasswordEnter();
+        LoginPage loginPage = new LoginPage();
+        loginPage.clickButtonEnter();
+
+        components.inputRandomPassword();
+        loginPage.clickButtonRegisterContinueAfterEmailPasswordEnter();
+
+        loginPage.validatingWhenIncorrectDateEnter();
         DriverSingleton.closeDriver();
     }
 }

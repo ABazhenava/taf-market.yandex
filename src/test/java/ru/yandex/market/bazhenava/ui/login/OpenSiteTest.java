@@ -3,10 +3,14 @@ package ru.yandex.market.bazhenava.ui.login;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.yandex.market.bazhenava.BaseTest;
-import ru.yandex.market.bazhenava.pages.HomePageXPath;
-import ru.yandex.market.bazhenava.utils.Waiters;
+import ru.yandex.market.bazhenava.pages.home.HomePageXPath;
+
+import java.time.Duration;
 
 
 public class OpenSiteTest extends BaseTest {
@@ -15,11 +19,12 @@ public class OpenSiteTest extends BaseTest {
     public void testOpenSiteThenCheckOpening() {
 
         By LinkOpenMarketYandexSiteBy = By.xpath(HomePageXPath.YANDEX_MARKET_LOGO);
-        WebElement LinkOpenMarketYandexSiteWebElement = driver.findElement(LinkOpenMarketYandexSiteBy);
-        String actualLogoSiteNameText = LinkOpenMarketYandexSiteWebElement.getText();
+        WebElement LinkOpenMarketYandexSite = driver.findElement(LinkOpenMarketYandexSiteBy);
+        String actualLogoSiteNameText = LinkOpenMarketYandexSite.getText();
         String expectedLogoSiteNameText = "Яндекс";
 
-        Waiters.waitFor(2);
+        Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(2));
+        wait.until(d -> LinkOpenMarketYandexSite.isDisplayed());
         Assertions.assertEquals(expectedLogoSiteNameText, actualLogoSiteNameText);
     }
 }
