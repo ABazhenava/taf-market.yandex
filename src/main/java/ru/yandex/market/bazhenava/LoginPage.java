@@ -24,15 +24,15 @@ public class LoginPage {
 
     public void clickButtonEnter() {
         By buttonLoginBy = By.xpath(LoginPageXPath.BUTTON_ENTER_XPATH);
-        WebElement buttonEnterWebElement = driver.findElement(buttonLoginBy);
-        buttonEnterWebElement.click();
+        WebElement buttonEnter = driver.findElement(buttonLoginBy);
+        buttonEnter.click();
         Waiters.waitFor(3);
     }
 
     public void clickButtonPhoneEnter() {
         By buttonPhoneEnterBy = By.xpath(LoginPageXPath.BUTTON_ENTER_PHONE_XPATH);
-        WebElement buttonPhoneEnterWebElement = driver.findElement(buttonPhoneEnterBy);
-        buttonPhoneEnterWebElement.click();
+        WebElement buttonPhoneEnter = driver.findElement(buttonPhoneEnterBy);
+        buttonPhoneEnter.click();
         Waiters.waitFor(2);
     }
 
@@ -68,19 +68,36 @@ public class LoginPage {
 
     public void clickButtonLoginContinue() {
         By buttonLoginContinueBy = By.xpath(LoginPageXPath.BUTTON_LOGIN_CONTINUE);
-        WebElement buttonLoginContinueWebElement = driver.findElement(buttonLoginContinueBy);
-        buttonLoginContinueWebElement.click();
+        WebElement buttonLoginContinue = driver.findElement(buttonLoginContinueBy);
+        buttonLoginContinue.click();
+        Waiters.waitFor(2);
+    }
+
+    public void clickButtonRegisterContinueAfterEmailPasswordEnter() {
+        By buttonRegisterContinueBy = By.xpath(LoginPageXPath.BUTTON_REGISTER_CONTINUE_AFTER_EMAIL_PASSWORD_ENTER);
+        WebElement buttonRegisterContinueContinue = driver.findElement(buttonRegisterContinueBy);
+        buttonRegisterContinueContinue.click();
         Waiters.waitFor(2);
     }
 
     public void clickButtonLoginNotYet() {
         By buttonLoginNotYetBy = By.xpath(LoginPageXPath.BUTTON_LOGIN_NOT_YET);
-        WebElement buttonLoginNotYetWebElement = driver.findElement(buttonLoginNotYetBy);
-        buttonLoginNotYetWebElement.click();
+        WebElement buttonLoginNotYet = driver.findElement(buttonLoginNotYetBy);
+        buttonLoginNotYet.click();
         Waiters.waitFor(2);
     }
 
     public void validatingWhenIncorrectPasswordEnter() {
+        By incorrectPasswordEnterBy = By.xpath(LoginPageXPath.ERROR_PASSWORD_XPATH);
+        WebElement incorrectPasswordEnter = driver.findElement(incorrectPasswordEnterBy);
+        String actualIncorrectPasswordEnterText = incorrectPasswordEnter.getText();
+        String expectedIncorrectPasswordEnterText = "Неверный пароль";
+
+        Waiters.waitFor(2);
+        Assertions.assertEquals(expectedIncorrectPasswordEnterText, actualIncorrectPasswordEnterText);
+    }
+
+    public void validatingWhenIncorrectDateEnter() {
         By incorrectPasswordEnterBy = By.xpath(LoginPageXPath.SEND_CODE_AGAINE);
         WebElement incorrectPasswordEnter = driver.findElement(incorrectPasswordEnterBy);
         String actualIncorrectPasswordEnterText = incorrectPasswordEnter.getText();

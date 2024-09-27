@@ -4,9 +4,9 @@ import org.junit.jupiter.api.Test;
 import ru.yandex.market.bazhenava.HomePage;
 import ru.yandex.market.bazhenava.LoginPage;
 import ru.yandex.market.bazhenava.driver.DriverSingleton;
-import ru.yandex.market.bazhenava.user.User;
+import ru.yandex.market.bazhenava.components.Components;
 
-public class LoginInputCorrectEmailIncorrectPassword {
+public class LoginInputCorrectEmailIncorrectPassTest {
 
     @Test
     public void testInputCorrectEmailIncorrectPassword() {
@@ -14,7 +14,7 @@ public class LoginInputCorrectEmailIncorrectPassword {
         homePage.openPage();
         homePage.clickButtonLogin();
 
-        User user = new User();
+        Components user = new Components();
         user.inputCorrectEmail();
         LoginPage loginPage = new LoginPage();
         loginPage.clickButtonEnter();

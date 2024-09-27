@@ -3,7 +3,7 @@ package ru.yandex.market.bazhenava.pages.login;
 public class LoginPageXPath {
 
     public static final String INPUT_EMAIL_XPATH = "//div[@class='passp-login-form']/form/div/div[2]/div[2]/div/div/span/input";
-    public static final String INPUT_PASSWORD_XPATH = "//input[@id='passp-field-phoneCode']";
+    public static final String INPUT_PASSWORD_XPATH = "//input[@name='passwd']";
             //"//div[@class='passp-route-forward']/div/div/form/div/div[2]/div[2]/div/span/input";
             //"//div[@class='passp-route-forward']/div/div/form/div/div/div/span/input";
     public static final String CORRECT_PASSWORD = "Asdf#12369874";
@@ -17,7 +17,12 @@ public class LoginPageXPath {
     public static final String BUTTON_LOGIN_CONTINUE = "//button[@id='passp:sign-in']";
             //input[@id=\"passp-field-passwd\"]";
             //"//div[@class='passp-button passp-lite-button']/button[1]";
+    public static final String BUTTON_REGISTER_CONTINUE_AFTER_EMAIL_PASSWORD_ENTER =
+                    "//div[@class='passp-button passp-lite-button']/button[1]";
     public static final String ERROR_PASSWORD_XPATH = "//div[@id='field:input-passwd:hint']";
+    //div[@class='Field-inputWrapper']/div
+    public static final String INPUT_NUMPER_PASSWORD_FROM_EMAIL_XPATH = "//div[@class='Field-inputWrapper']/span/input";
     public static final String SEND_CODE_AGAINE = "//div[@class='passp-button passp-lite-button']/button[2]";
+    //div[@class='passp-auth-screen passp--page']//div/button[2]
     public static final String BUTTON_LOGIN_NOT_YET = "//div[@class='WebauthnPromoRegPage-content']/div[5]/button";
 }
