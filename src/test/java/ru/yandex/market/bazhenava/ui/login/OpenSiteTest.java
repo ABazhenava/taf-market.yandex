@@ -19,12 +19,12 @@ public class OpenSiteTest extends BaseTest {
     public void testOpenSiteThenCheckOpening() {
 
         By LinkOpenMarketYandexSiteBy = By.xpath(HomePageXPath.YANDEX_MARKET_LOGO);
-        WebElement LinkOpenMarketYandexSiteWebElement = driver.findElement(LinkOpenMarketYandexSiteBy);
-        String actualLogoSiteNameText = LinkOpenMarketYandexSiteWebElement.getText();
+        WebElement LinkOpenMarketYandexSite = driver.findElement(LinkOpenMarketYandexSiteBy);
+        String actualLogoSiteNameText = LinkOpenMarketYandexSite.getText();
         String expectedLogoSiteNameText = "Яндекс";
 
         Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(2));
-        wait.until(d -> LinkOpenMarketYandexSiteWebElement.isDisplayed());
+        wait.until(d -> LinkOpenMarketYandexSite.isDisplayed());
         Assertions.assertEquals(expectedLogoSiteNameText, actualLogoSiteNameText);
     }
 }
