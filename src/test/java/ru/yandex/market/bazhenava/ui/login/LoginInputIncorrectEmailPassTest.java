@@ -6,7 +6,7 @@ import ru.yandex.market.bazhenava.LoginPage;
 import ru.yandex.market.bazhenava.driver.DriverSingleton;
 import ru.yandex.market.bazhenava.components.Components;
 
-public class LoginInputIncorrectDateTest {
+public class LoginInputIncorrectEmailPassTest {
 
     @Test
     public void testInputCorrectEmailIncorrectPassword() {
@@ -16,6 +16,7 @@ public class LoginInputIncorrectDateTest {
 
         Components components = new Components();
         components.inputRandomEmail();
+
         LoginPage loginPage = new LoginPage();
         loginPage.clickButtonEnter();
 

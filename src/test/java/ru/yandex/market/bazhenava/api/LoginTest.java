@@ -16,13 +16,22 @@ public class LoginTest {
                 .statusCode(500).log().body();
     }
 
+
     @Test
-    public void testGetLogin() {
+    public void testGetLogin2() {
+        RestAssured
+                .when()
+                .post(" https://passport.yandex.ru/registration-validations/auth/multi_step/start")
+                .then()
+                .statusCode(403).log().body();
+    }
+    @Test
+    public void testGetLogin3() {
         RestAssured
                 .when()
                 .get("https://api.passport.yandex.ru/registration_status/check")
                 .then()
-                .statusCode(200)
+                .statusCode(200).log().body()
                 .body("is_completion_recommended", equalTo(false))
                 .body("is_completion_required", equalTo(false));
     }
@@ -33,7 +42,7 @@ public class LoginTest {
                 .when()
                 .post("https://passport.yandex.ru/registration-validations/auth/accounts")
                 .then()
-                .statusCode(200)
+                .statusCode(200).log().body()
                 .body("accounts.loginForLogoId", equalTo(null))
                 .body("accounts.isQRAuthEnabled", equalTo(true));
     }

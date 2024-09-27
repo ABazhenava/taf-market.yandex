@@ -26,18 +26,16 @@ public class Components {
         By inputEmailBy = By.xpath(LoginPageXPath.INPUT_EMAIL_XPATH);
         WebElement inputEmail = driver.findElement(inputEmailBy);
         Waiters.waitFor(2);
-        String email;
-        //String[] domains = {"yahoo.com", "gmail.com", "yandex.ru", "mail.ru", "outlook.com"};
-        email = faker.internet().emailAddress();
-//        for (String domain : domains) {
-//            if (email.endsWith("@" + domain)) {
-//                inputEmail.sendKeys(email);
-//            }
-//            return email;
-//        }
-        inputEmail.sendKeys(email);
+        inputEmail.sendKeys(faker.name().firstName() + "@gmail.com");
         Waiters.waitFor(4);
-//        return email;
+    }
+
+    public void inputRandomLogin() {
+        By inputLoginBy = By.xpath(LoginPageXPath.INPUT_EMAIL_XPATH);
+        WebElement inputLogin = driver.findElement(inputLoginBy);
+        Waiters.waitFor(2);
+        inputLogin.sendKeys(faker.name().firstName());
+        Waiters.waitFor(4);
     }
 
     public void inputCorrectEmail() {
