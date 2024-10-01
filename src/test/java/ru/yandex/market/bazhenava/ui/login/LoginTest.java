@@ -47,7 +47,7 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
-    public void testInputCorrectEmailIncorrectPassword() {
+    public void testInputCorrectEmailRandomPassword() {
         HomePage homePage = new HomePage();
         homePage.clickButtonLogin();
         Components user = new Components();
@@ -60,7 +60,7 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
-    public void testInputIncorrectEmailIncorrectPassword() {
+    public void testInputRandomEmailRandomPassword() {
         HomePage homePage = new HomePage();
         homePage.clickButtonLogin();
         Components components = new Components();
