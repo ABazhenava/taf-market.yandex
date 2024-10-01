@@ -1,9 +1,7 @@
-package ru.yandex.market.bazhenava;
-
+package ru.yandex.market.bazhenava.pages.home;
 
 import com.github.javafaker.Faker;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,8 +10,6 @@ import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.yandex.market.bazhenava.driver.DriverSingleton;
 import ru.yandex.market.bazhenava.pages.bin.BinXPath;
-import ru.yandex.market.bazhenava.pages.home.DropDownMenuPageXPath;
-import ru.yandex.market.bazhenava.pages.home.HomePageXPath;
 import ru.yandex.market.bazhenava.utils.Waiters;
 
 import java.time.Duration;
@@ -85,7 +81,6 @@ public class HomePage {
         Waiters.waitFor(2);
     }
 
-    @Test
     public void validatingLinkBinOpen() {
 
         By linkBinOpenBy = By.xpath(BinXPath.LINK_BIN_XPATH);
@@ -98,7 +93,6 @@ public class HomePage {
         Assertions.assertEquals(expectedBinNameText, actualBinNameText);
     }
 
-    @Test
     public void validatingTVInBinOrder() {
         By linkTVInBinOrderBy = By.xpath(BinXPath.IN_BIN_TO_ORDER);
         WebElement linkTVInBinOrder = driver.findElement(linkTVInBinOrderBy);
@@ -121,15 +115,6 @@ public class HomePage {
                         "О сервисе\n" +
                         "Участие в исследованиях\n" +
                         "Возвраты";
-
-        Assertions.assertEquals(expectedLinkNameText, actualLinkNameText);
-    }
-
-    public void validatingHomePageOpening() {
-        By linkSplit0012By = By.xpath(HomePageXPath.LINK_SPLIT_0012);
-        WebElement linkSplit0012 = driver.findElement(linkSplit0012By);
-        String actualLinkNameText = linkSplit0012.getText();
-        String expectedLinkNameText = "Сплит 0012";
 
         Assertions.assertEquals(expectedLinkNameText, actualLinkNameText);
     }

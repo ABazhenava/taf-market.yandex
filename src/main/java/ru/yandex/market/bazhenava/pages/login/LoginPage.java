@@ -1,4 +1,4 @@
-package ru.yandex.market.bazhenava;
+package ru.yandex.market.bazhenava.pages.login;
 
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
@@ -6,7 +6,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.yandex.market.bazhenava.driver.DriverSingleton;
-import ru.yandex.market.bazhenava.pages.login.LoginPageXPath;
 import ru.yandex.market.bazhenava.utils.Waiters;
 
 import java.time.Duration;
@@ -56,16 +55,6 @@ public class LoginPage {
         Assertions.assertEquals(expectedEmptyPhoneEnterText, actualEmptyPhoneEnterText);
     }
 
-    public void validatingWhenIncorrectEmailEnter() {
-        By incorrectEmailEnterBy = By.xpath(LoginPageXPath.ERROR_EMAIL_XPATH);
-        WebElement incorrectEmailEnter = driver.findElement(incorrectEmailEnterBy);
-        String actualIncorrectEmailEnterText = incorrectEmailEnter.getText();
-        String expectedIncorrectEmailEnterText = "Логин не указан";
-
-        Waiters.waitFor(2);
-        Assertions.assertEquals(expectedIncorrectEmailEnterText, actualIncorrectEmailEnterText);
-    }
-
     public void clickButtonLoginContinue() {
         By buttonLoginContinueBy = By.xpath(LoginPageXPath.BUTTON_LOGIN_CONTINUE);
         WebElement buttonLoginContinue = driver.findElement(buttonLoginContinueBy);
@@ -77,13 +66,6 @@ public class LoginPage {
         By buttonRegisterContinueBy = By.xpath(LoginPageXPath.BUTTON_REGISTER_CONTINUE_AFTER_EMAIL_PASSWORD_ENTER);
         WebElement buttonRegisterContinueContinue = driver.findElement(buttonRegisterContinueBy);
         buttonRegisterContinueContinue.click();
-        Waiters.waitFor(2);
-    }
-
-    public void clickButtonLoginNotYet() {
-        By buttonLoginNotYetBy = By.xpath(LoginPageXPath.BUTTON_LOGIN_NOT_YET);
-        WebElement buttonLoginNotYet = driver.findElement(buttonLoginNotYetBy);
-        buttonLoginNotYet.click();
         Waiters.waitFor(2);
     }
 
