@@ -11,5 +11,4 @@ public class HomePageXPath {
     public static final String BUTTON_LOGIN_XPATH = "//div[@id='USER_MENU_ANCHOR']/div/div/a";
     public static final String LINK_WE_ON_SOCIAL_MEDIA =
             "//div[@class='_1MqoO cia-vs cia-cs']/footer/noindex/div[3]/div/div[2]/div/div/h3";
-    public static final String LINK_SPLIT_0012 = "//a[@href='https://market.yandex.ru/special/split']/span";
 }
