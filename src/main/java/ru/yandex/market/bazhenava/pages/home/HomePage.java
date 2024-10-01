@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import ru.yandex.market.bazhenava.components.Components;
 import ru.yandex.market.bazhenava.driver.DriverSingleton;
 import ru.yandex.market.bazhenava.pages.bin.BinXPath;
 import ru.yandex.market.bazhenava.utils.Waiters;
@@ -17,10 +18,10 @@ import java.time.Duration;
 public class HomePage {
     WebDriver driver;
     private Faker faker;
-    public static final String URL = "https://market.yandex.ru/";
+    Components components = new Components();
 
     public void openPage() {
-        driver.get(URL);
+        driver.get(HomePageXPath.BASE_URL);
     }
 
     public HomePage() {
@@ -28,11 +29,23 @@ public class HomePage {
         Faker faker = new Faker();
     }
 
+    public void openSiteThenCheckOpening() {
+
+        HomePage homePage = new HomePage();
+        By LinkOpenMarketYandexSiteBy = By.xpath(HomePageXPath.YANDEX_MARKET_LOGO);
+        WebElement LinkOpenMarketYandexSite = driver.findElement(LinkOpenMarketYandexSiteBy);
+        String actualLogoSiteNameText = LinkOpenMarketYandexSite.getText();
+        String expectedLogoSiteNameText = "Яндекс";
+        Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(components.MIN_FIBONACCI_NUMBER));
+        wait.until(d -> LinkOpenMarketYandexSite.isDisplayed());
+        Assertions.assertEquals(expectedLogoSiteNameText, actualLogoSiteNameText);
+    }
+
     public void clickButtonLogin() {
         By buttonLoginBy = By.xpath(HomePageXPath.BUTTON_LOGIN_XPATH);
         WebElement buttonLogin = driver.findElement(buttonLoginBy);
         buttonLogin.click();
-        Waiters.waitFor(2);
+        Waiters.waitFor(components.MIN_FIBONACCI_NUMBER);
     }
 
     public void validatingWhenСorrectLoginDateEnter() {
@@ -41,7 +54,7 @@ public class HomePage {
         String actualCorrectLoginDataEnterText = correctLoginDataEnter.getText();
         String expectedCorrectLoginDataEnterText = "Мы в соцсетях";
 
-        Waiters.waitFor(4);
+        Waiters.waitFor(components.MAX_FIBONACCI_NUMBER);
         Assertions.assertEquals(expectedCorrectLoginDataEnterText, actualCorrectLoginDataEnterText);
     }
 
@@ -49,7 +62,7 @@ public class HomePage {
         By buttonOpenMarketYandexCatalogBy = By.xpath(HomePageXPath.BUTTON_MARKET_YANDEX_CATALOG);
         WebElement buttonOpenMarketYandexCatalog = driver.findElement(buttonOpenMarketYandexCatalogBy);
         buttonOpenMarketYandexCatalog.click();
-        Waiters.waitFor(4);
+        Waiters.waitFor(components.MAX_FIBONACCI_NUMBER);
     }
 
     public void moveOnDropDownLinkCatalogToElektronika() {
@@ -57,28 +70,28 @@ public class HomePage {
         WebElement linkCatalogElektronika = driver.findElement(linkCatalogElektronikaBy);
         Actions actions = new Actions(driver);
         actions.moveToElement(linkCatalogElektronika).perform();
-        Waiters.waitFor(2);
+        Waiters.waitFor(components.MIN_FIBONACCI_NUMBER);
     }
 
     public void openSubCatalogTV() {
         By linkOpenSubCatalogTVBy = By.xpath(DropDownMenuPageXPath.SUB_CATALOG_TV);
         WebElement linkOpenSubCatalogTV = driver.findElement(linkOpenSubCatalogTVBy);
         linkOpenSubCatalogTV.click();
-        Waiters.waitFor(2);
+        Waiters.waitFor(components.MIN_FIBONACCI_NUMBER);
     }
 
     public void addTVToBin() {
         By linkTVBy = By.xpath(BinXPath.TV_IN_BIN_XPATH);
         WebElement linkTV = driver.findElement(linkTVBy);
         linkTV.click();
-        Waiters.waitFor(2);
+        Waiters.waitFor(components.MIN_FIBONACCI_NUMBER);
     }
 
     public void openBin() {
         By buttonBinBy = By.xpath(BinXPath.BUTTON_BIN_XPATH);
         WebElement buttonBin = driver.findElement(buttonBinBy);
         buttonBin.click();
-        Waiters.waitFor(2);
+        Waiters.waitFor(components.MIN_FIBONACCI_NUMBER);
     }
 
     public void validatingLinkBinOpen() {
@@ -88,7 +101,7 @@ public class HomePage {
         String actualBinNameText = linkBinOpen.getText();
         String expectedBinNameText = "Корзина";
 
-        Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(2));
+        Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(components.MIN_FIBONACCI_NUMBER));
         wait.until(d -> linkBinOpen.isDisplayed());
         Assertions.assertEquals(expectedBinNameText, actualBinNameText);
     }
