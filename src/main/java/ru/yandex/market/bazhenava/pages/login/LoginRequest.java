@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LoginRequest {
-
     public static final String LOGIN_URL = "https://passport.yandex.ru/registration-validations/auth/multi_step/commit_password";
     public static final String GET_LOGIN_URL = "https://mail.yandex.ru/api/v2/userid/counters?silent";
     public static final String LOGIN_URL_ACCOUNT_ENTER = "https://passport.yandex.ru/registration-validations/auth/accounts";
