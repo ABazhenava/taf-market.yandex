@@ -1,7 +1,5 @@
 package ru.yandex.market.bazhenava.pages.login;
 
-import groovy.transform.PackageScope;
-
 public class LoginPageXPath {
     public static final String INPUT_EMAIL_XPATH = "//div[@class='passp-login-form']/form/div/div[2]/div[2]/div/div/span/input";
     public static final String INPUT_PASSWORD_XPATH = "//input[@name='passwd']";

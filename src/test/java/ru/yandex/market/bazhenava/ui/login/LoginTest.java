@@ -25,6 +25,16 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
+    public void testLoginWithRandomPhoneData() {
+        HomePage homePage = new HomePage();
+        homePage.clickButtonLogin();
+        LoginPage loginPage = new LoginPage();
+        loginPage.clickButtonPhoneEnter();
+        loginPage.clickButtonEnter();
+        loginPage.validatingWhenEmptyPhoneEnter();
+    }
+
+    @Test
     public void testLoginWithEmptyEmailData() {
         HomePage homePage = new HomePage();
         homePage.clickButtonLogin();
@@ -60,7 +70,7 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
-    public void testInputRandomEmailRandomPassword() {
+    public void testInputRandomEmailRandomPassw() {
         HomePage homePage = new HomePage();
         homePage.clickButtonLogin();
         Components components = new Components();
@@ -73,7 +83,7 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
-    public void testInputRandomLoginRandomPassword() {
+    public void testInputRandomLoginRandomPass() {
         HomePage homePage = new HomePage();
         homePage.clickButtonLogin();
         Components components = new Components();

@@ -13,8 +13,8 @@ import java.time.Duration;
 
 public class LoginPage {
 
-    WebDriver driver;
-    WebDriverWait webDriverWait;
+    private WebDriver driver;
+    private WebDriverWait webDriverWait;
     Components components = new Components();
 
     public LoginPage() {

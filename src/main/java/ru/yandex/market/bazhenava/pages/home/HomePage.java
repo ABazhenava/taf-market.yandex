@@ -16,7 +16,7 @@ import ru.yandex.market.bazhenava.utils.Waiters;
 import java.time.Duration;
 
 public class HomePage {
-    WebDriver driver;
+    private WebDriver driver;
     private Faker faker;
     Components components = new Components();
 
@@ -31,7 +31,6 @@ public class HomePage {
 
     public void openSiteThenCheckOpening() {
 
-        HomePage homePage = new HomePage();
         By LinkOpenMarketYandexSiteBy = By.xpath(HomePageXPath.YANDEX_MARKET_LOGO);
         WebElement LinkOpenMarketYandexSite = driver.findElement(LinkOpenMarketYandexSiteBy);
         String actualLogoSiteNameText = LinkOpenMarketYandexSite.getText();
@@ -53,7 +52,6 @@ public class HomePage {
         WebElement correctLoginDataEnter = driver.findElement(correctLoginDataEnterBy);
         String actualCorrectLoginDataEnterText = correctLoginDataEnter.getText();
         String expectedCorrectLoginDataEnterText = "Мы в соцсетях";
-
         Waiters.waitFor(components.MAX_FIBONACCI_NUMBER);
         Assertions.assertEquals(expectedCorrectLoginDataEnterText, actualCorrectLoginDataEnterText);
     }
@@ -100,7 +98,6 @@ public class HomePage {
         WebElement linkBinOpen = driver.findElement(linkBinOpenBy);
         String actualBinNameText = linkBinOpen.getText();
         String expectedBinNameText = "Корзина";
-
         Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(components.MIN_FIBONACCI_NUMBER));
         wait.until(d -> linkBinOpen.isDisplayed());
         Assertions.assertEquals(expectedBinNameText, actualBinNameText);
@@ -111,7 +108,6 @@ public class HomePage {
         WebElement linkTVInBinOrder = driver.findElement(linkTVInBinOrderBy);
         String actualLinkNameText = linkTVInBinOrder.getText();
         String expectedLinkNameText = "Перейти к оформлению";
-
         Assertions.assertEquals(expectedLinkNameText, actualLinkNameText);
     }
 
@@ -128,7 +124,6 @@ public class HomePage {
                         "О сервисе\n" +
                         "Участие в исследованиях\n" +
                         "Возвраты";
-
         Assertions.assertEquals(expectedLinkNameText, actualLinkNameText);
     }
 }
