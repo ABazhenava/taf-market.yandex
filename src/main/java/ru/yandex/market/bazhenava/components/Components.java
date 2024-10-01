@@ -12,6 +12,9 @@ import ru.yandex.market.bazhenava.utils.Waiters;
 import java.time.Duration;
 
 public class Components {
+
+    public final int MIN_FIBONACCI_NUMBER = 2;
+    public final int MAX_FIBONACCI_NUMBER = 3;
     WebDriver driver;
     private Faker faker;
     WebDriverWait webDriverWait;
@@ -19,45 +22,45 @@ public class Components {
     public Components() {
         this.driver = DriverSingleton.getDriver();
         faker = new Faker();
-        webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(3));
+        webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(MIN_FIBONACCI_NUMBER));
     }
 
     public void inputRandomEmail() {
         By inputEmailBy = By.xpath(LoginPageXPath.INPUT_EMAIL_XPATH);
         WebElement inputEmail = driver.findElement(inputEmailBy);
-        Waiters.waitFor(2);
+        Waiters.waitFor(MIN_FIBONACCI_NUMBER);
         inputEmail.sendKeys(faker.name().firstName() + "@gmail.com");
-        Waiters.waitFor(4);
+        Waiters.waitFor(MAX_FIBONACCI_NUMBER);
     }
 
     public void inputRandomLogin() {
         By inputLoginBy = By.xpath(LoginPageXPath.INPUT_EMAIL_XPATH);
         WebElement inputLogin = driver.findElement(inputLoginBy);
-        Waiters.waitFor(2);
+        Waiters.waitFor(MIN_FIBONACCI_NUMBER);
         inputLogin.sendKeys(faker.name().firstName());
-        Waiters.waitFor(4);
+        Waiters.waitFor(MAX_FIBONACCI_NUMBER);
     }
 
     public void inputCorrectEmail() {
         By inputEmailBy = By.xpath(LoginPageXPath.INPUT_EMAIL_XPATH);
         WebElement inputEmail = driver.findElement(inputEmailBy);
         inputEmail.sendKeys(LoginPageXPath.CORRECT_EMAIL);
-        Waiters.waitFor(4);
+        Waiters.waitFor(MAX_FIBONACCI_NUMBER);
     }
 
     public void inputRandomPassword() {
         By inputPasswordBy = By.xpath(LoginPageXPath.INPUT_NUMPER_PASSWORD_FROM_EMAIL_XPATH);
         WebElement inputPassword = driver.findElement(inputPasswordBy);
         String randomPassword = faker.numerify("######");
-        Waiters.waitFor(4);
+        Waiters.waitFor(MAX_FIBONACCI_NUMBER);
         inputPassword.sendKeys(randomPassword);
-        Waiters.waitFor(2);
+        Waiters.waitFor(MIN_FIBONACCI_NUMBER);
     }
 
     public void inputCorrectPassword() {
         By inputPasswordBy = By.xpath(LoginPageXPath.INPUT_PASSWORD_XPATH);
         WebElement inputPassword = driver.findElement(inputPasswordBy);
         inputPassword.sendKeys(LoginPageXPath.CORRECT_PASSWORD);
-        Waiters.waitFor(4);
+        Waiters.waitFor(MAX_FIBONACCI_NUMBER);
     }
 }
