@@ -30,3 +30,4 @@ public class CatalogTest extends BaseTest {
         homePage.validatingTVInBinOrder();
     }
 }
+

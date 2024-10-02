@@ -25,11 +25,21 @@ public class Components {
         webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(MIN_FIBONACCI_NUMBER));
     }
 
+    public void inputRandomPhoneNumber() {
+        By inputPasswordBy = By.xpath(LoginPageXPath.INPUT_PHONE_NUMPER_LOGIN_XPATH);
+        WebElement inputPassword = driver.findElement(inputPasswordBy);
+        String randomPassword = faker.numerify("#######");
+        Waiters.waitFor(MAX_FIBONACCI_NUMBER);
+        inputPassword.sendKeys("29" + randomPassword);
+        Waiters.waitFor(MIN_FIBONACCI_NUMBER);
+    }
+
     public void inputRandomEmail() {
+        String domain = "@gmail.com";
         By inputEmailBy = By.xpath(LoginPageXPath.INPUT_EMAIL_XPATH);
         WebElement inputEmail = driver.findElement(inputEmailBy);
         Waiters.waitFor(MIN_FIBONACCI_NUMBER);
-        inputEmail.sendKeys(faker.name().firstName() + "@gmail.com");
+        inputEmail.sendKeys(faker.name().firstName() + domain);
         Waiters.waitFor(MAX_FIBONACCI_NUMBER);
     }
 

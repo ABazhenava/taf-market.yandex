@@ -30,11 +30,10 @@ public class HomePage {
     }
 
     public void openSiteThenCheckOpening() {
-
         By LinkOpenMarketYandexSiteBy = By.xpath(HomePageXPath.YANDEX_MARKET_LOGO);
         WebElement LinkOpenMarketYandexSite = driver.findElement(LinkOpenMarketYandexSiteBy);
         String actualLogoSiteNameText = LinkOpenMarketYandexSite.getText();
-        String expectedLogoSiteNameText = "Яндекс";
+        String expectedLogoSiteNameText = HomePageXPath.LOGO_SITE_NAME;
         Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(components.MIN_FIBONACCI_NUMBER));
         wait.until(d -> LinkOpenMarketYandexSite.isDisplayed());
         Assertions.assertEquals(expectedLogoSiteNameText, actualLogoSiteNameText);
@@ -51,7 +50,7 @@ public class HomePage {
         By correctLoginDataEnterBy = By.xpath(HomePageXPath.LINK_WE_ON_SOCIAL_MEDIA);
         WebElement correctLoginDataEnter = driver.findElement(correctLoginDataEnterBy);
         String actualCorrectLoginDataEnterText = correctLoginDataEnter.getText();
-        String expectedCorrectLoginDataEnterText = "Мы в соцсетях";
+        String expectedCorrectLoginDataEnterText = HomePageXPath.CORRECT_LINK_LOGIN_DATE;
         Waiters.waitFor(components.MAX_FIBONACCI_NUMBER);
         Assertions.assertEquals(expectedCorrectLoginDataEnterText, actualCorrectLoginDataEnterText);
     }
@@ -78,6 +77,12 @@ public class HomePage {
         Waiters.waitFor(components.MIN_FIBONACCI_NUMBER);
     }
 
+    public void xiaomiTVChoose() {
+        By linkTVEnterBy = By.xpath(BinXPath.IN_BIN_TO_ORDER);
+        WebElement linkTVEnter = driver.findElement(linkTVEnterBy);
+        linkTVEnter.click();
+        Waiters.waitFor(components.MIN_FIBONACCI_NUMBER);
+    }
     public void addTVToBin() {
         By linkTVBy = By.xpath(BinXPath.TV_IN_BIN_XPATH);
         WebElement linkTV = driver.findElement(linkTVBy);
@@ -93,11 +98,10 @@ public class HomePage {
     }
 
     public void validatingLinkBinOpen() {
-
         By linkBinOpenBy = By.xpath(BinXPath.LINK_BIN_XPATH);
         WebElement linkBinOpen = driver.findElement(linkBinOpenBy);
         String actualBinNameText = linkBinOpen.getText();
-        String expectedBinNameText = "Корзина";
+        String expectedBinNameText = HomePageXPath.BIN_NAME;
         Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(components.MIN_FIBONACCI_NUMBER));
         wait.until(d -> linkBinOpen.isDisplayed());
         Assertions.assertEquals(expectedBinNameText, actualBinNameText);
@@ -107,7 +111,7 @@ public class HomePage {
         By linkTVInBinOrderBy = By.xpath(BinXPath.IN_BIN_TO_ORDER);
         WebElement linkTVInBinOrder = driver.findElement(linkTVInBinOrderBy);
         String actualLinkNameText = linkTVInBinOrder.getText();
-        String expectedLinkNameText = "Перейти к оформлению";
+        String expectedLinkNameText = BinXPath.ORDER;
         Assertions.assertEquals(expectedLinkNameText, actualLinkNameText);
     }
 
@@ -115,15 +119,7 @@ public class HomePage {
         By linkForCustemBy = By.xpath(HomePageXPath.LINK_FOR_CUSTEM_DOWN_SITE);
         WebElement linkForCustem = driver.findElement(linkForCustemBy);
         String actualLinkNameText = linkForCustem.getText();
-        String expectedLinkNameText =
-                "Покупателям\n" +
-                        "Как выбрать товар\n" +
-                        "Оплата и доставка\n" +
-                        "Обратная связь\n" +
-                        "Покупайте как юрлицо\n" +
-                        "О сервисе\n" +
-                        "Участие в исследованиях\n" +
-                        "Возвраты";
+        String expectedLinkNameText = HomePageXPath.LINKS_FOR_CUSTEMER;
         Assertions.assertEquals(expectedLinkNameText, actualLinkNameText);
     }
 }
