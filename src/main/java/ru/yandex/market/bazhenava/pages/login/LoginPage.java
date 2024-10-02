@@ -71,7 +71,7 @@ public class LoginPage {
     }
 
     public void clickButtonRegisterContinueAfterEmailPasswordEnter() {
-        By buttonRegisterContinueBy = By.xpath(LoginPageXPath.BUTTON_REGISTER_NEXT);
+        By buttonRegisterContinueBy = By.xpath(LoginPageXPath.BUTTON_LOGIN_CONTINUE);
         WebElement buttonRegisterContinue = driver.findElement(buttonRegisterContinueBy);
         buttonRegisterContinue.click();
         Waiters.waitFor(components.MAX_FIBONACCI_NUMBER);
