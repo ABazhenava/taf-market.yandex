@@ -77,12 +77,6 @@ public class HomePage {
         Waiters.waitFor(components.MIN_FIBONACCI_NUMBER);
     }
 
-    public void xiaomiTVChoose() {
-        By linkTVEnterBy = By.xpath(BinXPath.IN_BIN_TO_ORDER);
-        WebElement linkTVEnter = driver.findElement(linkTVEnterBy);
-        linkTVEnter.click();
-        Waiters.waitFor(components.MIN_FIBONACCI_NUMBER);
-    }
     public void addTVToBin() {
         By linkTVBy = By.xpath(BinXPath.TV_IN_BIN_XPATH);
         WebElement linkTV = driver.findElement(linkTVBy);

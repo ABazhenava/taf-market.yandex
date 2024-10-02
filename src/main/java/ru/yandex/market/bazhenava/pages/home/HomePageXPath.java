@@ -1,7 +1,6 @@
 package ru.yandex.market.bazhenava.pages.home;
 
 public class HomePageXPath {
-
     public static final String BASE_URL = "https://market.yandex.ru/";
     public static final String YANDEX_MARKET_LOGO = "//a[@href='/'][@data-auto='logoMarketLink']";
     public static final String BUTTON_MARKET_YANDEX_CATALOG =
@@ -23,6 +22,4 @@ public class HomePageXPath {
                     "О сервисе\n" +
                     "Участие в исследованиях\n" +
                     "Возвраты";
-
-    public static final String BUTTON_XIAOMI_TO_BIN = "//span[contains(text(), 'корзину')]";
 }
