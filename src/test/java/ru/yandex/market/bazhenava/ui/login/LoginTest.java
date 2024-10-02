@@ -30,8 +30,10 @@ public class LoginTest extends BaseTest {
         homePage.clickButtonLogin();
         LoginPage loginPage = new LoginPage();
         loginPage.clickButtonPhoneEnter();
+        Components user = new Components();
+        user.inputRandomPhoneNumber();
         loginPage.clickButtonEnter();
-        loginPage.validatingWhenEmptyPhoneEnter();
+        loginPage.validatingWhenRandomPhoneEnter();
     }
 
     @Test
@@ -70,7 +72,7 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
-    public void testInputRandomEmailRandomPassw() {
+    public void testInputRandomEmailRandomPasswor() {
         HomePage homePage = new HomePage();
         homePage.clickButtonLogin();
         Components components = new Components();
