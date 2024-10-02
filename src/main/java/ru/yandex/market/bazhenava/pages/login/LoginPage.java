@@ -40,7 +40,16 @@ public class LoginPage {
         By emptyEmailEnterBy = By.xpath(LoginPageXPath.EMPTY_EMAIL_ENTER_XPATH);
         WebElement emptyEmailEnter = driver.findElement(emptyEmailEnterBy);
         String actualEmptyEmailEnterText = emptyEmailEnter.getText();
-        String expectedEmptyEmailEnterText = "Логин не указан";
+        String expectedEmptyEmailEnterText = LoginPageXPath.NO_LOGIN;
+        Waiters.waitFor(components.MIN_FIBONACCI_NUMBER);
+        Assertions.assertEquals(expectedEmptyEmailEnterText, actualEmptyEmailEnterText);
+    }
+
+    public void validatingWhenRandomPhoneEnter() {
+        By randomPhoneEnterBy = By.xpath(LoginPageXPath.ENTER_PHRASE_FROM_THE_PICTURE);
+        WebElement randomPhoneEnter = driver.findElement(randomPhoneEnterBy);
+        String actualEmptyEmailEnterText = randomPhoneEnter.getText();
+        String expectedEmptyEmailEnterText = LoginPageXPath.FROM_THE_PICTURE_WORDS;
         Waiters.waitFor(components.MIN_FIBONACCI_NUMBER);
         Assertions.assertEquals(expectedEmptyEmailEnterText, actualEmptyEmailEnterText);
     }
@@ -49,7 +58,7 @@ public class LoginPage {
         By emptyPhoneEnterBy = By.xpath(LoginPageXPath.EMPTY_PHONE_ENTER_XPATH);
         WebElement emptyPhoneEnter = driver.findElement(emptyPhoneEnterBy);
         String actualEmptyPhoneEnterText = emptyPhoneEnter.getText();
-        String expectedEmptyPhoneEnterText = "Недопустимый формат номера";
+        String expectedEmptyPhoneEnterText = LoginPageXPath.BAD_FORMAT_PHONE_NUMBER;
         Waiters.waitFor(components.MIN_FIBONACCI_NUMBER);
         Assertions.assertEquals(expectedEmptyPhoneEnterText, actualEmptyPhoneEnterText);
     }
@@ -72,16 +81,16 @@ public class LoginPage {
         By incorrectPasswordEnterBy = By.xpath(LoginPageXPath.ERROR_PASSWORD_XPATH);
         WebElement incorrectPasswordEnter = driver.findElement(incorrectPasswordEnterBy);
         String actualIncorrectPasswordEnterText = incorrectPasswordEnter.getText();
-        String expectedIncorrectPasswordEnterText = "Неверный пароль";
+        String expectedIncorrectPasswordEnterText = LoginPageXPath.INCORRECT_PASSWORD;
         Waiters.waitFor(components.MIN_FIBONACCI_NUMBER);
         Assertions.assertEquals(expectedIncorrectPasswordEnterText, actualIncorrectPasswordEnterText);
     }
 
     public void validatingWhenIncorrectDateEnter() {
-        By incorrectPasswordEnterBy = By.xpath(LoginPageXPath.SEND_CODE_AGAINE);
+        By incorrectPasswordEnterBy = By.xpath(LoginPageXPath.SEND_CODE_AGAINE_XPATHE);
         WebElement incorrectPasswordEnter = driver.findElement(incorrectPasswordEnterBy);
         String actualIncorrectPasswordEnterText = incorrectPasswordEnter.getText();
-        String expectedIncorrectPasswordEnterText = "Отправить код повторно";
+        String expectedIncorrectPasswordEnterText = LoginPageXPath.SEND_CODE_EGAINE;
         Waiters.waitFor(components.MIN_FIBONACCI_NUMBER);
         Assertions.assertEquals(expectedIncorrectPasswordEnterText, actualIncorrectPasswordEnterText);
     }
@@ -90,7 +99,7 @@ public class LoginPage {
         By incorrectPasswordEnterBy = By.xpath(LoginPageXPath.ERROR_PASSWORD_AFTER_RONG_LOGIN_XPATH);
         WebElement incorrectPasswordEnter = driver.findElement(incorrectPasswordEnterBy);
         String actualIncorrectPasswordEnterText = incorrectPasswordEnter.getText();
-        String expectedIncorrectPasswordEnterText = "Неверный пароль";
+        String expectedIncorrectPasswordEnterText = LoginPageXPath.INCORRECT_PASSWORD;
         Waiters.waitFor(components.MIN_FIBONACCI_NUMBER);
         Assertions.assertEquals(expectedIncorrectPasswordEnterText, actualIncorrectPasswordEnterText);
     }
