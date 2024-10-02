@@ -7,9 +7,9 @@ import ru.yandex.market.bazhenava.driver.DriverSingleton;
 
 
 public class Utils {
-
     WebDriver driver;
     Components components = new Components();
+
     public Utils() {
         this.driver = DriverSingleton.getDriver();
     }
