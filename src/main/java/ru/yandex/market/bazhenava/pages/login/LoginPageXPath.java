@@ -12,7 +12,6 @@ public class LoginPageXPath {
             "//div[@class='IntPhoneInput IntPhoneInput_view_contrast IntPhoneInput_isFilled']/div[2]";
     public static final String ERROR_PASSWORD_AFTER_RONG_LOGIN_XPATH = "//div[@id='field:input-passwd:hint']";
     public static final String BUTTON_LOGIN_CONTINUE = "//button[@id='passp:sign-in']";
-    public static final String BUTTON_REGISTER_NEXT = "//div[@class='passp-button passp-lite-button']/button[1]";
     public static final String ERROR_PASSWORD_XPATH = "//div[@id='field:input-passwd:hint']";
     public static final String FROM_THE_PICTURE_WORDS = "Введите фразу с картинки";
     public static final String INPUT_NUMPER_PASSWORD_FROM_EMAIL_XPATH = "//div[@class='Field-inputWrapper']/span/input";
