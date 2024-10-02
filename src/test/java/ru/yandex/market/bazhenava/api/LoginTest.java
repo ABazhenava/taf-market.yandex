@@ -3,7 +3,6 @@ package ru.yandex.market.bazhenava.api;
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.Test;
 import ru.yandex.market.bazhenava.pages.login.LoginRequest;
-
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 

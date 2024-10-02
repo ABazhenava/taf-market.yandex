@@ -15,7 +15,7 @@ public class LoginRequest {
 
     public static Map<String, String> getHeaders() {
         Map<String, String> headers = new HashMap<>();
-        headers.put("Content-Type","application/x-www-form-urlencoded; charset=UTF-8");
+        headers.put("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
         return headers;
     }
 

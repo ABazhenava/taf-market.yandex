@@ -12,7 +12,6 @@ import ru.yandex.market.bazhenava.utils.Waiters;
 import java.time.Duration;
 
 public class LoginPage {
-
     private WebDriver driver;
     private WebDriverWait webDriverWait;
     Components components = new Components();

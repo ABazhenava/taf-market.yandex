@@ -5,10 +5,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import ru.yandex.market.bazhenava.driver.DriverSingleton;
 import ru.yandex.market.bazhenava.components.Components;
+import ru.yandex.market.bazhenava.driver.DriverSingleton;
 import ru.yandex.market.bazhenava.utils.Waiters;
-
 import java.time.Duration;
 
 public class SearchPage {
